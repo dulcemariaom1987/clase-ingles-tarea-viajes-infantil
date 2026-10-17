@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>✈️ Tarea de inglés · Viajes y Vacaciones</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#fff4d6;--bg2:#d9f0ff;--card:#fff;--ink:#2b2350;--mut:#6b6590;--ok:#16a34a;--bad:#e11d48;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#241a4a;--bg2:#10294a;--card:#2c2560;--ink:#fff6e0;--mut:#c9c3ee}}
+:root[data-theme="dark"]{--bg1:#241a4a;--bg2:#10294a;--card:#2c2560;--ink:#fff6e0;--mut:#c9c3ee}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;font-family:'Fredoka','Comic Sans MS','Trebuchet MS',system-ui,sans-serif;font-size:17px;color:var(--ink);background:linear-gradient(135deg,var(--bg1),var(--bg2));background-color:var(--bg1);background-attachment:fixed}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#7c4dff;z-index:30}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;justify-content:space-between;align-items:center;padding:10px 16px;background:linear-gradient(90deg,#7c4dff,#ff4fa3);color:#fff;font-weight:700;font-size:1.2rem}
+.score{background:#ffd23f;color:#2b2350;border-radius:999px;padding:4px 16px}
+.pop{animation:pop .5s}
+.nav{display:flex;gap:8px;overflow-x:auto;padding:10px 12px;max-width:900px;margin:auto}
+.nav a{flex:none;text-decoration:none;color:#fff;background:#7c4dff;border-radius:999px;padding:6px 12px;font-weight:600;font-size:.9rem}
+.nav a:nth-child(3n){background:#ff6b6b}.nav a:nth-child(3n+1){background:#12b886}
+.fl{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.fl span{position:absolute;bottom:-70px;font-size:2.2rem;opacity:.28;animation:fl 16s linear infinite}
+main{position:relative;z-index:1;padding:0 12px 40px}
+.card{background:var(--card);border-radius:26px;margin:22px auto;max-width:860px;box-shadow:0 8px 0 rgba(0,0,0,.14);overflow:hidden;animation:in .6s both;padding-bottom:16px}
+.card h2{margin:0;padding:14px 20px;background:var(--c,#7c4dff);color:#fff;font-size:1.35rem}
+.card h3{margin:16px 0 8px}
+.intro{padding:12px 20px 0;margin:0;color:var(--mut)}
+.body{padding:6px 20px}
+.hero{text-align:center;padding:26px 16px}
+.hero h1{margin:0;font-size:2.4rem;background:linear-gradient(90deg,#ff4fa3,#ff9f1c,#12b886,#4dabf7,#7c4dff,#ff4fa3);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:rb 5s linear infinite}
+.plane{font-size:3.4rem;display:inline-block;animation:fly 3s ease-in-out infinite}
+.hero ul{text-align:left;max-width:560px;margin:10px auto;line-height:1.7}
+.btn{font:inherit;font-weight:700;border:0;border-radius:999px;padding:10px 22px;margin:8px 6px 0 0;color:#fff;background:linear-gradient(90deg,#7c4dff,#ff4fa3);cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.22)}
+.btn:active{transform:translateY(3px);box-shadow:none}
+.snd{flex:none;font-size:1.1rem;border:0;border-radius:50%;width:40px;height:40px;background:#4dabf7;color:#fff;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.2)}
+.ping{animation:pop .5s}
+.vg{display:grid;grid-template-columns:repeat(auto-fill,minmax(125px,1fr));gap:10px}
+.vc{font:inherit;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:2px;background:var(--card);border:3px solid var(--c);border-radius:18px;padding:10px 6px;cursor:pointer;transition:transform .2s}
+.vc:hover{transform:translateY(-6px) rotate(-3deg)}
+.vc .e{font-size:2.4rem;animation:bob 2s ease-in-out infinite}
+.vc small{color:var(--mut)}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px;margin:8px 0;border-radius:16px;background:rgba(124,77,255,.1);border:3px solid transparent}
+.row.ok{border-color:var(--ok)}
+.row.bad{border-color:var(--bad);animation:shake .4s}
+.n{flex:none;background:#ffd23f;color:#2b2350;border-radius:50%;width:30px;height:30px;display:grid;place-items:center;font-weight:700}
+.q{flex:1 1 220px}
+.big{font-size:2.2rem;line-height:1.2}
+.scr{letter-spacing:5px;font-size:1.4rem;color:#ff4fa3}
+.mk{font-style:normal;font-size:1.4rem}
+input,select{font:inherit;padding:6px 10px;border-radius:12px;border:3px solid #7c4dff;background:var(--card);color:var(--ink);max-width:100%}
+input{width:150px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{font:inherit;font-size:1.1rem;padding:8px 16px;border-radius:14px;border:3px solid #7c4dff;background:var(--card);color:var(--ink);cursor:pointer}
+.opt:hover{transform:scale(1.06)}
+.opt.good{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.wrong{background:var(--bad);color:#fff;border-color:var(--bad);opacity:.55}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.chip{background:#ffd23f;color:#2b2350;border-radius:999px;padding:4px 14px;font-weight:700}
+.chip.f{background:var(--ok);color:#fff;text-decoration:line-through}
+.slot,.pool{min-height:48px;display:flex;flex-wrap:wrap;gap:6px;padding:6px;margin-top:6px;border-radius:12px}
+.slot{border:3px dashed #7c4dff}
+.wd{font:inherit;font-weight:600;border:0;border-radius:12px;padding:6px 14px;background:#12b886;color:#fff;cursor:pointer}
+.msg{font-weight:700;text-align:center;min-height:1.4em}
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:480px;margin:10px auto}
+.mc{aspect-ratio:1;border:0;border-radius:16px;font:inherit;font-weight:700;font-size:1.05rem;background:linear-gradient(135deg,#7c4dff,#ff4fa3);color:#fff;cursor:pointer;padding:2px}
+.mc.up{background:#ffe08a;color:#2b2350}
+.mc.m{background:#b9f6ca;color:#2b2350;animation:pop .5s}
+.ws{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;max-width:430px;margin:12px auto}
+.wc{aspect-ratio:1;border:0;border-radius:8px;font:inherit;font-weight:700;background:rgba(124,77,255,.18);color:var(--ink);cursor:pointer;padding:0}
+.wc.s{background:#ffd23f;color:#2b2350}
+.wc.f{background:var(--ok);color:#fff}
+.hw{font-size:2rem;letter-spacing:4px;text-align:center;font-weight:700;margin:10px 0}
+.kb{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.key{font:inherit;font-weight:700;width:40px;height:40px;border:0;border-radius:10px;background:#4dabf7;color:#fff;cursor:pointer}
+.key:disabled{opacity:.3}
+.c{text-align:center}
+.cf{position:fixed;top:-40px;font-size:1.7rem;z-index:99;pointer-events:none;animation:cf 2.3s ease-in forwards}
+@keyframes cf{to{transform:translateY(110vh) rotate(540deg);opacity:.5}}
+@keyframes fl{to{transform:translateY(-115vh) rotate(360deg)}}
+@keyframes bob{50%{transform:translateY(-6px)}}
+@keyframes fly{50%{transform:translate(14px,-14px) rotate(8deg)}}
+@keyframes pop{40%{transform:scale(1.25)}}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@keyframes in{from{opacity:0;transform:translateY(30px)}}
+@keyframes rb{to{background-position:300% 0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="fl" aria-hidden="true"><span style="left:5%">✈️</span><span style="left:20%;animation-delay:3s">🏖️</span><span style="left:35%;animation-delay:7s">🧳</span><span style="left:50%;animation-delay:1s">🌴</span><span style="left:65%;animation-delay:5s">🚂</span><span style="left:80%;animation-delay:9s">☀️</span><span style="left:92%;animation-delay:2s">🗺️</span></div>
+<div class="top"><span>✈️ English Time!</span><span class="score">⭐ <b id="sc">0</b></span></div>
+<div class="nav" id="nav"></div>
+<main id="m">
+<section class="card hero"><div class="plane">✈️</div><h1>¡Tarea de inglés!</h1><p><b>Viajes y Vacaciones</b> · Travel &amp; Vacations 🌍</p>
+<ul><li>🔊 Toca el botón azul para <b>escuchar</b> las palabras en inglés americano.</li><li>🗣️ Repite cada palabra en voz alta.</li><li>✍️ En los cuadros solo escribirás <b>una palabra</b>. ¡Fácil!</li><li>✅ Pulsa «Revisar» para ver cómo te fue. Si te sale ❌, ¡inténtalo otra vez!</li><li>⭐ Cada acierto te da estrellas. ¡Junta todas las que puedas!</li></ul>
+<p style="color:var(--mut);font-size:.9rem">Si no oyes el sonido: sube el volumen y usa Chrome, Edge o Safari.</p></section>
+</main>
+<script>
+const M=document.getElementById('m'),NAV=document.getElementById('nav');
+let sc=0;const got={};
+const shuf=a=>[...a].sort(()=>Math.random()-.5);
+function pt(k,n=1){if(got[k])return;got[k]=1;sc+=n;document.getElementById('sc').textContent=sc;const s=document.querySelector('.score');s.classList.remove('pop');void s.offsetWidth;s.classList.add('pop')}
+function say(t){try{const s=window.speechSynthesis;s.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.85;const v=s.getVoices().find(x=>x.lang==='en-US'||x.lang==='en_US');if(v)u.voice=v;s.speak(u)}catch(e){}}
+try{speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices()}catch(e){}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-say]');if(b){say(b.dataset.say);b.classList.remove('ping');void b.offsetWidth;b.classList.add('ping')}});
+function boom(n=26){const E=['🎉','⭐','✈️','🌴','🏖️','🎈','✨','🧳'];for(let i=0;i<n;i++){const s=document.createElement('span');s.className='cf';s.textContent=E[i%E.length];s.style.left=Math.random()*100+'vw';s.style.animationDelay=Math.random()*.6+'s';document.body.appendChild(s);setTimeout(()=>s.remove(),3200)}}
+function btn(t,c='btn'){const b=document.createElement('button');b.className=c;b.textContent=t;return b}
+function sec(id,ico,title,intro,c){const s=document.createElement('section');s.id=id;s.className='card';s.style.setProperty('--c',c);s.innerHTML='<h2>'+ico+' '+title+'</h2><p class="intro">'+intro+'</p><div class="body"></div>';M.appendChild(s);const a=document.createElement('a');a.href='#'+id;a.textContent=ico+' '+title.split('·')[0].trim();NAV.appendChild(a);return s.querySelector('.body')}
+function mkType(b,id,items){
+ const ol=document.createElement('div');
+ items.forEach((it,i)=>{const r=document.createElement('div');r.className='row';
+  const ctl=it.o?'<select aria-label="Elige tu respuesta"><option value="">Elige…</option>'+it.o.map(o=>'<option>'+o+'</option>').join('')+'</select>':'<input type="text" maxlength="14" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Escribe tu respuesta">';
+  r.innerHTML='<b class="n">'+(i+1)+'</b>'+(it.say?'<button class="snd" data-say="'+it.say+'" aria-label="Escuchar">🔊</button>':'')+'<span class="q">'+it.h.replace('{}',ctl)+'</span><i class="mk"></i>';
+  ol.appendChild(r)});
+ const bt=btn('✅ Revisar mis respuestas'),msg=document.createElement('p');msg.className='msg';
+ bt.onclick=()=>{let ok=0;items.forEach((it,i)=>{const r=ol.children[i],v=r.querySelector('input,select').value.trim().toLowerCase(),g=v===it.a.toLowerCase();r.classList.toggle('ok',g);r.classList.toggle('bad',!g&&v!=='');r.querySelector('.mk').textContent=g?'✅':(v?'❌':'');if(g){ok++;pt(id+i)}});
+  msg.textContent=ok===items.length?'🎉 ¡Perfecto! ¡Todas correctas!':'Vas '+ok+' de '+items.length+'. ¡Intenta de nuevo las que tienen ❌! 💪';if(ok===items.length)boom()};
+ b.append(ol,bt,msg)}
+function mkChoice(b,id,items){items.forEach((it,i)=>{const d=document.createElement('div');d.className='row';
+ d.innerHTML='<b class="n">'+(i+1)+'</b><div class="q">'+it.h+'</div><div class="opts">'+it.o.map(o=>'<button class="opt">'+o+'</button>').join('')+'</div><i class="mk"></i>';
+ let tried=0,done=0;d.querySelectorAll('.opt').forEach(bt=>bt.onclick=()=>{if(done)return;if(bt.textContent.replace(/\uFE0F/g,'')===it.a.replace(/\uFE0F/g,'')){done=1;bt.classList.add('good');d.classList.add('ok');d.querySelector('.mk').textContent='✅';if(!tried)pt(id+i);boom(8)}else{tried=1;bt.classList.add('wrong');bt.disabled=true;d.querySelector('.mk').textContent='🤔'}});
+ b.appendChild(d)})}
+function mkBuild(b,id,items){items.forEach((it,i)=>{const d=document.createElement('div');d.className='row';
+ d.innerHTML='<b class="n">'+(i+1)+'</b><div class="q"><b>'+it.es+'</b><div class="slot"></div><div class="pool"></div></div><i class="mk"></i>';
+ const slot=d.querySelector('.slot'),pool=d.querySelector('.pool');
+ function chk(){d.classList.remove('ok','bad');d.querySelector('.mk').textContent='';if(pool.children.length)return;const s=[...slot.children].map(x=>x.textContent).join(' ').toLowerCase();if(s===it.a.toLowerCase()){d.classList.add('ok');d.querySelector('.mk').textContent='✅';pt(id+i,2);boom(10)}else{d.classList.add('bad');d.querySelector('.mk').textContent='❌'}}
+ shuf(it.w).forEach(x=>{const w=btn(x,'wd');w.onclick=()=>{(w.parentNode===pool?slot:pool).appendChild(w);chk()};pool.appendChild(w)});
+ b.appendChild(d)})}
+function mkWS(b){
+ const W=[['BEACH','🏖️'],['HOTEL','🏨'],['TRAIN','🚂'],['MAP','🗺️'],['SHIP','🚢'],['CAR','🚗'],['BUS','🚌'],['ISLAND','🏝️'],['OCEAN','🌊'],['TICKET','🎫']],N=10;let g;
+ for(;;){g=Array.from({length:N},()=>Array(N).fill(''));let all=true;
+  for(const [w] of W){let p=0;for(let t=0;t<200&&!p;t++){const h=Math.random()<.5,r=Math.floor(Math.random()*(h?N:N-w.length+1)),c=Math.floor(Math.random()*(h?N-w.length+1:N));let ok=true;for(let k=0;k<w.length;k++){const x=g[h?r:r+k][h?c+k:c];if(x&&x!==w[k]){ok=false;break}}if(ok){for(let k=0;k<w.length;k++)g[h?r:r+k][h?c+k:c]=w[k];p=1}}if(!p){all=false;break}}
+  if(all)break}
+ const L='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+ for(let r=0;r<N;r++)for(let c=0;c<N;c++)if(!g[r][c])g[r][c]=L[Math.floor(Math.random()*26)];
+ const ch=document.createElement('div');ch.className='chips';ch.innerHTML=W.map(w=>'<span class="chip" id="w-'+w[0]+'">'+w[1]+' '+w[0]+'</span>').join('');
+ const gr=document.createElement('div');gr.className='ws';const ms=document.createElement('p');ms.className='msg';
+ const cells=[];let st=null,fd=0;
+ for(let r=0;r<N;r++)for(let c=0;c<N;c++){const e=btn(g[r][c],'wc');e.onclick=()=>{
+   if(e.classList.contains('f')&&!st){}
+   if(!st){st=[r,c];e.classList.add('s');return}
+   const [r0,c0]=st;cells.forEach(x=>x.classList.remove('s'));st=null;
+   if(r0!==r&&c0!==c)return;
+   const path=[];if(r0===r){for(let k=Math.min(c0,c);k<=Math.max(c0,c);k++)path.push([r,k])}else{for(let k=Math.min(r0,r);k<=Math.max(r0,r);k++)path.push([k,c])}
+   const s=path.map(p=>g[p[0]][p[1]]).join(''),rs=[...s].reverse().join('');
+   const f=W.find(w=>w[0]===s||w[0]===rs);const chip=f&&document.getElementById('w-'+f[0]);
+   if(f&&!chip.classList.contains('f')){chip.classList.add('f');path.forEach(p=>cells[p[0]*N+p[1]].classList.add('f'));fd++;pt('ws'+f[0],2);boom(6);ms.textContent='¡Encontraste '+fd+' de '+W.length+'! 🔎';if(fd===W.length){ms.textContent='🎉 ¡Encontraste todas las palabras!';boom()}}
+  };cells.push(e);gr.appendChild(e)}
+ b.append(ch,gr,ms)}
+function mkMem(b){
+ const P=[['Beach','🏖️'],['Train','🚂'],['Map','🗺️'],['Hotel','🏨'],['Camera','📷'],['Ship','🚢'],['Ocean','🌊'],['Bus','🚌']];
+ const st=document.createElement('p');st.className='msg';const g=document.createElement('div');g.className='mem';const rb=btn('🔄 Jugar otra vez');b.append(st,g,rb);
+ let o,lock,fd,tr;
+ function upd(){st.textContent='🏆 Pares: '+fd+'/8 · Intentos: '+tr+(fd===8?' · 🎉 ¡Los encontraste todos!':'')}
+ function init(){g.innerHTML='';o=[];lock=0;fd=0;tr=0;upd();const cs=[];P.forEach(p=>cs.push({k:p[0],t:p[0]},{k:p[0],t:p[1]}));
+  shuf(cs).forEach(c=>{const e=btn('❓','mc');e.onclick=()=>{if(lock||e.classList.contains('up')||e.classList.contains('m'))return;e.textContent=c.t;e.classList.add('up');say(c.k);o.push([e,c]);
+   if(o.length===2){tr++;const a=o[0],d=o[1];
+    if(a[1].k===d[1].k){a[0].className='mc m';d[0].className='mc m';o=[];fd++;upd();if(fd===8){pt('mem',5);boom()}}
+    else{lock=1;upd();setTimeout(()=>{a[0].textContent='❓';d[0].textContent='❓';a[0].classList.remove('up');d[0].classList.remove('up');o=[];lock=0},1000)}}};g.appendChild(e)})}
+ rb.onclick=init;init()}
+function mkHang(b){
+ const L=[['AIRPLANE','✈️','Es un transporte que vuela'],['SUITCASE','🧳','La llevas cuando viajas'],['MOUNTAIN','🏔️','Es muy alta y tiene picos'],['UMBRELLA','☂️','Te protege de la lluvia'],['PASSPORT','🛂','Lo necesitas para viajar a otro país'],['HELICOPTER','🚁','Vuela con hélices'],['FOREST','🌲','Lugar con muchos árboles']];
+ let i=0,w,lv,gs,over;
+ const tp=document.createElement('div');tp.className='c';const wd=document.createElement('div');wd.className='hw';const hr=document.createElement('p');hr.className='msg';const kb=document.createElement('div');kb.className='kb';const ms=document.createElement('p');ms.className='msg';
+ const rt=btn('🔁 Reintentar'),nx=btn('➡️ Nueva palabra');
+ function draw(){w=L[i][0];tp.innerHTML='<div class="big">'+L[i][1]+'</div><div>'+L[i][2]+'</div>';wd.textContent=[...w].map(c=>gs.has(c)?c:'_').join(' ');hr.textContent='❤️'.repeat(lv)+'🖤'.repeat(6-lv)}
+ function start(){lv=6;gs=new Set();over=0;ms.textContent='';draw();kb.querySelectorAll('button').forEach(x=>x.disabled=false)}
+ for(const c of 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'){const k=btn(c,'key');k.onclick=()=>{if(over)return;k.disabled=true;if(w.includes(c))gs.add(c);else lv--;draw();
+  if([...w].every(x=>gs.has(x))){over=1;pt('h'+i,3);ms.textContent='🎉 ¡Muy bien!';boom();say(w)}else if(lv<1){over=1;ms.textContent='💔 ¡Se acabaron las vidas! Pulsa «Reintentar».'}};kb.appendChild(k)}
+ rt.onclick=start;nx.onclick=()=>{i=(i+1)%L.length;start()};
+ b.append(tp,wd,hr,kb,ms,rt,nx);start()}
+
+let b;
+const G=[['🚗 Transportes · Transportation','#ff6b6b',[['Airplane','✈️','Avión'],['Ship','🚢','Barco'],['Car','🚗','Carro'],['Bus','🚌','Autobús'],['Train','🚂','Tren'],['Helicopter','🚁','Helicóptero']]],
+['🌍 Lugares · Places','#12b886',[['Beach','🏖️','Playa'],['Mountain','🏔️','Montaña'],['City','🌆','Ciudad'],['Hotel','🏨','Hotel'],['Ocean','🌊','Océano'],['Forest','🌲','Bosque'],['Island','🏝️','Isla'],['Airport','🛫','Aeropuerto']]],
+['🧳 Objetos de viaje · Travel items','#ff9f1c',[['Suitcase','🧳','Maleta'],['Map','🗺️','Mapa'],['Camera','📷','Cámara'],['Ticket','🎫','Boleto'],['Passport','🛂','Pasaporte'],['Umbrella','☂️','Paraguas']]],
+['🌤️ El clima · Weather','#4dabf7',[['Sunny','☀️','Soleado'],['Rainy','🌧️','Lluvioso'],['Snowy','❄️','Con nieve'],['Windy','🌬️','Con viento'],['Cloudy','☁️','Nublado'],['Hot','🌡️','Caluroso']]]];
+b=sec('vocab','📚','Parte 1 · Vocabulario','Toca cada tarjeta para escuchar la palabra en inglés. ¡Repítela en voz alta! 🗣️','#ff6b6b');
+G.forEach(g=>{b.insertAdjacentHTML('beforeend','<h3>'+g[0]+'</h3><div class="vg" style="--c:'+g[1]+'">'+g[2].map(w=>'<button class="vc" data-say="'+w[0]+'"><span class="e">'+w[1]+'</span><b>'+w[0]+'</b><small>'+w[2]+'</small><span>🔊</span></button>').join('')+'</div>')});
+
+b=sec('frases','💬','Parte 2 · Frases','Toca 🔊 para escuchar cada frase. Escucha, repite y ¡practica como un viajero! 🌟','#ff9f1c');
+[['Where is my suitcase?','¿Dónde está mi maleta?'],['I have my passport!','¡Tengo mi pasaporte!'],['The airplane is big.','El avión es grande.'],['I like the hotel!','¡Me gusta el hotel!'],['Can I have the map, please?','¿Me puede dar el mapa, por favor?'],['It is sunny today!','¡Hoy está soleado!'],['I love the ocean!','¡Me encanta el océano!'],['Let’s go swimming!','¡Vamos a nadar!'],['I am on vacation!','¡Estoy de vacaciones!'],['I want to take a photo!','¡Quiero tomar una foto!']].forEach(p=>{b.insertAdjacentHTML('beforeend','<div class="row"><button class="snd" data-say="'+p[0]+'" aria-label="Escuchar">🔊</button><div class="q"><b>'+p[0]+'</b><br><small style="color:var(--mut)">'+p[1]+'</small></div></div>')});
+
+b=sec('ejA','✏️','Tarea A · Completa','Elige una palabra del banco y escríbela en el cuadro para completar cada oración. ¡Solo una palabra!','#7c4dff');
+b.insertAdjacentHTML('beforeend','<div class="chips"><span class="chip">beach</span><span class="chip">airplane</span><span class="chip">hotel</span><span class="chip">suitcase</span><span class="chip">sunny</span><span class="chip">passport</span></div>');
+mkType(b,'A',[{h:'We travel in an {} to go on vacation. ✈️',a:'airplane'},{h:'I put my clothes in my {} before the trip. 🧳',a:'suitcase'},{h:'We sleep in a {} when we travel. 🛏️',a:'hotel'},{h:'Today is {} — let’s go out! ☀️',a:'sunny'},{h:'You need your {} to travel to another country. 🛂',a:'passport'},{h:'We love to swim at the {} in summer. 🏊',a:'beach'}]);
+
+b=sec('ejB','🔗','Tarea B · Une','Toca 🔊, mira el dibujo y elige en el menú el significado en español.','#ff4fa3');
+mkType(b,'B',[['Map','🗺️',['Cámara','Mapa','Boleto','Maleta'],'Mapa'],['Mountain','🏔️',['Playa','Bosque','Montaña','Isla'],'Montaña'],['Camera','📷',['Paraguas','Mapa','Cámara','Pasaporte'],'Cámara'],['Ocean','🌊',['Río','Lago','Cielo','Océano'],'Océano'],['Snowy','❄️',['Soleado','Con nieve','Lluvioso','Nublado'],'Con nieve'],['Ship','🚢',['Avión','Tren','Barco','Autobús'],'Barco'],['Umbrella','☂️',['Paraguas','Maleta','Cámara','Boleto'],'Paraguas'],['Island','🏝️',['Isla','Bosque','Ciudad','Playa'],'Isla']].map(x=>({say:x[0],h:'<span class="big">'+x[1]+'</span> <b>'+x[0]+'</b> →&nbsp;{}',o:x[2],a:x[3]})));
+
+b=sec('ejC','✅','Tarea C · ¿Verdadero o falso?','Lee cada oración (abajo está en español) y toca <b>True</b> si es verdadera o <b>False</b> si es falsa.','#12b886');
+mkChoice(b,'C',[['A “suitcase” is a type of transportation. 🧳','Una «suitcase» es un tipo de transporte.','False'],['An “airport” is where airplanes take off. ✈️','Un «airport» es donde despegan los aviones.','True'],['“Rainy” means hot and sunny. ☀️','«Rainy» significa caluroso y soleado.','False'],['An “island” has water all around it. 🏝️','Una «island» tiene agua alrededor.','True'],['You need a “ticket” to travel by train. 🎫','Necesitas un «ticket» para viajar en tren.','True'],['A “bus” is a type of transportation. 🚌','Un «bus» es un tipo de transporte.','True'],['“Snowy” means the weather is hot. 🌡️','«Snowy» significa que hace calor.','False'],['An “umbrella” helps you on a rainy day. ☂️','Un «umbrella» te ayuda en un día lluvioso.','True']].map(x=>({h:'<b>'+x[0]+'</b><br><small style="color:var(--mut)">'+x[1]+'</small>',o:['True','False'],a:x[2]})));
+
+b=sec('ejD','👂','Tarea D · Escucha y elige','Toca 🔊, escucha la palabra y toca el dibujo correcto.','#4dabf7');
+mkChoice(b,'D',[['Helicopter',['🚁','🚂','🚌','🚗'],'🚁'],['Umbrella',['☂️','📷','🎫','🗺️'],'☂️'],['Mountain',['🏝️','🌲','🌊','🏔️'],'🏔️'],['Windy',['☁️','🌬️','❄️','🌧️'],'🌬️'],['Passport',['🎫','🧳','🛂','📷'],'🛂'],['Ship',['✈️','🚂','🚌','🚢'],'🚢']].map(x=>({h:'<button class="snd" data-say="'+x[0]+'" aria-label="Escuchar">🔊</button> ¿Qué dibujo es?',o:x[1],a:x[2]})));
+
+b=sec('ejE','🖊️','Tarea E · Escribe la palabra','Mira el dibujo y escribe en inglés cómo se llama. ¡Una sola palabra!','#ff6b6b');
+mkType(b,'E',[['🚌','bus'],['🚂','train'],['📷','camera'],['🏨','hotel'],['☂️','umbrella'],['🌲','forest'],['🚁','helicopter'],['❄️','snowy']].map(x=>({h:'<span class="big">'+x[0]+'</span> →&nbsp;{}',a:x[1]})));
+
+b=sec('ejF','🔀','Tarea F · Ordena las letras','Las letras están revueltas. Mira el dibujo, ordénalas y escribe la palabra.','#ff9f1c');
+mkType(b,'F',[['🏖️','CHAEB','beach'],['🧳','CASUETIS','suitcase'],['✈️','NAIPELAR','airplane'],['🗺️','PAM','map'],['🌊','NAECO','ocean'],['☀️','YNNUS','sunny'],['🏨','TLEHO','hotel'],['🎫','KETICT','ticket']].map(x=>({h:'<span class="big">'+x[0]+'</span> <b class="scr">'+x[1]+'</b> →&nbsp;{}',a:x[2]})));
+
+b=sec('ejG','🎧','Tarea G · Escucha y escribe','Toca 🔊, escucha la palabra y escríbela en inglés. El dibujo te ayuda. ¡Una palabra!','#7c4dff');
+mkType(b,'G',[['island','🏝️'],['train','🚂'],['camera','📷'],['rainy','🌧️'],['forest','🌲'],['ship','🚢']].map(x=>({say:x[0],h:'<span class="big">'+x[1]+'</span> →&nbsp;{}',a:x[0]})));
+
+b=sec('ejH','🧩','Tarea H · Arma la oración','Toca las palabras en el orden correcto para formar la oración. Toca una palabra de arriba para devolverla. ¡Sin escribir!','#ff4fa3');
+mkBuild(b,'H',[{es:'🧳 ¿Dónde está mi maleta?',w:['Where','is','my','suitcase?'],a:'Where is my suitcase?'},{es:'☀️ Hoy está soleado.',w:['It','is','sunny','today.'],a:'It is sunny today.'},{es:'🏨 Me gusta el hotel.',w:['I','like','the','hotel.'],a:'I like the hotel.'},{es:'🛂 Tengo mi pasaporte.',w:['I','have','my','passport.'],a:'I have my passport.'}]);
+
+b=sec('sopa','🔎','Juego 1 · Sopa de letras','Busca las palabras en inglés de la lista. Toca la primera letra y luego la última. Están en horizontal (→ ←) o vertical (↓ ↑).','#12b886');mkWS(b);
+b=sec('mem','🃏','Juego 2 · Memoria','Voltea dos tarjetas para unir la palabra en inglés con su dibujo. ¡Escucha cada palabra! 🔊','#4dabf7');mkMem(b);
+b=sec('adivina','🔤','Juego 3 · Adivina la palabra','Toca las letras para descubrir la palabra en inglés. Tienes 6 vidas ❤️. Mira el dibujo y la pista.','#ff6b6b');mkHang(b);
+b=sec('quiz','⚡','Juego 4 · Quiz rápido','¡10 preguntas! Elige la respuesta correcta.','#ff9f1c');
+mkChoice(b,'Q',[['🏝️','Island',['Island','Forest','Beach']],['🎫','Ticket',['Map','Ticket','Camera']],['🌧️','Rainy',['Sunny','Windy','Rainy']],['Barco','Ship',['Bus','Car','Ship']],['🌲','Forest',['Mountain','City','Forest']],['Paraguas','Umbrella',['Passport','Umbrella','Suitcase']],['🚂','Train',['Helicopter','Bus','Train']],['☁️','Cloudy',['Snowy','Cloudy','Hot']],['Aeropuerto','Airport',['Hotel','Island','Airport']],['📷','Camera',['Camera','Map','Ticket']]].map(x=>({h:'<span class="big">'+x[0]+'</span><br><small style="color:var(--mut)">¿Cómo se dice en inglés?</small>',o:x[2],a:x[1]})));
+
+b=sec('fin','🏆','¡Final!','¡Terminaste la tarea! Toca el botón para ver tu premio.','#7c4dff');
+b.className+=' c';b.innerHTML='<div class="big" id="fin-t">🌍✈️🏖️</div>';
+const fb=btn('🎉 ¡Ver mi premio!');b.appendChild(fb);
+fb.onclick=()=>{document.getElementById('fin-t').innerHTML='¡Ganaste <b>'+sc+'</b> ⭐ estrellas!<br>Great work! 👏<br><small>(¡Buen trabajo!)</small>';boom(60)};
+</script>
+</body>
+</html>
